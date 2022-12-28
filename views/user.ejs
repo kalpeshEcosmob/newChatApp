@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: large;
+        }
+
+        .container {
+            color: rgb(163, 121, 66);
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+
+        .contain {
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+    
+<body>
+    <div>
+        <%- include('includes/nav.ejs') %>
+    </div>
+    <div class="contain">
+        <h1>Users</h1>
+        <div>
+            <%if(data.length> 0){%>
+                <%for(let user of data){%>
+                    <div class="container">
+                        <%if(user.email===email) {%>
+                            <h1>You</h1>
+                            <%}else{%>
+                                <h1>
+                                    Name : <%=user.userName%>
+                                </h1>
+                                <h3>
+                                    Email : <%=user.email%>
+                                </h3>
+
+                                <%}%>
+
+                    </div>
+                    <%}%>
+                        <%}else{%>
+                            <h1>Only admins are permitted</h1>
+                            <%}%>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="http://localhost:3100/socket.io/socket.io.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .right {
+            text-align: right;
+            background-color: #4CAF50;
+            margin: 10px 0px 10px 400px;
+        }
+
+        .left {
+            text-align: left;
+            background-color: #41cc3c1c;
+            margin: 10px 400px 10px 0px;
+        }
+
+        .send-container {
+            text-align: right;
+        }
+
+        #recieve-container {
+            border: 2px solid rgb(190, 190, 197);
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            width: 1275px;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .container {
+            border: 2px solid #7c7d7c78;
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .main {
+            padding-left: 300px;
+            padding-right: 300px;
+        }
+
+        .same {
+            flex: 1;
+        }
+
+        .the {
+            display: flex;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .contain {
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+
+        .name {
+            font-size: large;
+            color: rgb(42, 53, 49);
+            text-align: center;
+
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+    </style>
+    <title>
+        <%=recievername%>
+    </title>
+</head>
+
+<body>
+    <%- include('includes/nav.ejs') %>
+        <div class="topnav" style="margin-top: 2px;">
+            <a href="/home">Back</a>
+            <a href="/delete?room=<%=room%>">Delete</a>
+        </div>
+
+        <div id="name" value="<%= data %>"></div>
+        <div class="" id="senderName" value="<%=sendername%>">
+            <!-- <h2>Sender is <%=sendername%></h2> -->
+        </div>
+        <div class="" id="recieverName" value="<%=recievername%>">
+            <!-- <h2>Reciever is <%=recievername%></h2> -->
+        </div>
+        <div id="senderUserId" value="<%= senderUserId %>"></div>
+        <div id="recieverUserId" value="<%= recieverUserId %>"></div>
+        <!-- <div class="main"> -->
+        <!-- <div class="the"> -->
+        <!-- <div class="same " style="margin-left: -229px;">
+                <div class="contain">
+                    <h1>User Name</h1>
+                    <%if(users.length> 0){%>
+                        <%for(let user of users){%>
+                            <%if(user.userName !==sendername){%>
+                                <h2><a href="/?name=<%= user.userName %>">
+                                        <%=user.userName%>
+                                    </a></h2>
+                                <%}%>
+                                    <%}%>
+                                        <%}%>
+                </div>
+            </div> -->
+        <!-- <div class="same " style="padding-left: 108px;"> -->
+
+        <div id="message-container">
+            <div id="recieve-container">
+
+            </div>
+            <form id="send-container" class="send-container">
+                <input type="text" id="send-message" placeholder="Enter the message">
+                <button type="submit" id="submit">Send Message</button>
+            </form>
+        </div>
+        <!-- </div> -->
+
+        <!-- </div> -->
+</body>
+<script defer src="script.js">
+    console.log('Connected')
+</script>
+
+</html>

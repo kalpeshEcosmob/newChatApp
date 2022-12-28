@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Chat</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: large;
+        }
+
+        .container {
+            color: rgb(163, 121, 66);
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+
+        .contain {
+            border: 2px solid #aeacac;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="userId" value="<%= userId %>"></div>
+    <%- include('includes/nav.ejs') %>
+        <div class="main">
+
+
+            <div class="contain">
+                <h1>User Name</h1>
+                <% if(data.length>0){ %>
+
+                    <% for(let user of data){ %>
+                        <% if(user.userName !=sender){ %>
+                            <div class="container">
+                                <h2><a href="/?name=<%= user.userName %>">
+                                        <%= user.userName %>
+                                    </a></h2>
+                            </div>
+                            <% } %>
+                                <% } %>
+
+                                    <% }else{ %>
+                                        <div>
+                                            <p>No product</p>
+                                        </div>
+                                        <% } %>
+            </div>
+        </div>
+</body>
+<script>
+
+    const x = document.getElementById('userId').getAttribute('value');
+    console.log("x is", x)
+    localStorage.setItem("userId", x)
+    localStorage.setItem("logged", "true")
+</script>
+
+</html>

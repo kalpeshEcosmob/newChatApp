@@ -1,0 +1,56 @@
+<style>
+    
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+<script>
+    const logged = localStorage.getItem("logged")
+    console.log('logged', logged)
+</script>
+<div>
+    <div class="ref topnav">
+        <td>
+        <th>
+            <% if(1==1) { %> <a href="/home">Home</a>
+                <%}%>
+        </th>
+        <th><a href="/login">Login</a></th>
+        <th><a href="/signup">Sign In</a></th>
+        <th><a href="/me">Me</a></th>
+        <th><a href="/user">User</a></th>
+        <div style="margin-left: 1200px;">
+
+            <th><a href="/logout">Logout</a></th>
+        </div>
+        <!-- <th><a href="/delete">delete</a></th> -->
+        </td>
+    </div>
+
+
+</div>
